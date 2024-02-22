@@ -7,11 +7,18 @@ const TodoList = () => {
   const { todos, toggleTodo, deleteTodo } = useContext(TodoContext);
 
   return (
-    <ul className="space-y-3">
-      {todos.map((todo) => (
+    
+
+         <div className="container mx-auto mt-5">
+     
+      {/* Kaydırılabilir liste için bir container */}
+      <div className="scrollable-list bg-white border border-gray-300 p-3 rounded-md">
+        <ul className="divide-y divide-dashed  ">
+          {/* Liste öğeleri */}
+          {todos.map((todo) => (
         <li
           key={todo.id}
-          className={`flex items-center justify-between p-3 rounded-md  ${
+          className={`flex items-center justify-between m-2 p-1 rounded-md text-ellipsis overflow-hidden ... ${
             todo.completed ? 'bg-gray-200' : ''
           }`}
         >
@@ -31,7 +38,11 @@ const TodoList = () => {
           </button>
         </li>
       ))}
-    </ul>
+        </ul>
+      </div>
+    </div>
+      
+    
   );
 };
 
